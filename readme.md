@@ -2,7 +2,7 @@
 
 A thread-safe java client for [MDWS](https://sandbox.vainnovation.us/groups/mdws/) SOAP services.
 
-See also: [connection information](https://sandbox.vainnovation.us/groups/mdws/wiki/b800c/Connecting_to_the_Sandbox_MDWS_Server.html) and [SOAP message list](https://sandbox.vainnovation.us/groups/mdws/wiki/085db/Drafting__MDWS_SOAP_Message_Reference_List.html)
+See also: [connection information](https://sandbox.vainnovation.us/groups/mdws/wiki/b800c/Connecting_to_the_Sandbox_MDWS_Server.html) and [SOAP message list](https://sandbox.vainnovation.us/groups/mdws/wiki/085db/Drafting__MDWS_SOAP_Message_Reference_List.html) for MDWS.
 
 ## Test Service Logins
 
@@ -56,7 +56,12 @@ See also: [connection information](https://sandbox.vainnovation.us/groups/mdws/w
 ## Example MDWS use cases
 
 ### Double login produces error
-getVHA -> connect(901) -> login(1programmer) -> getWards [ok] -> login(1programmer) [The remote procedure XUS AV CODE is not registered to the option XUS SIGNON.] -> getWards [Application context has not been created!]
+getVHA -> 
+  connect(901) -> 
+     login(1programmer) -> 
+       getWards [ok] -> 
+          login(1programmer) [The remote procedure XUS AV CODE is not registered to the option XUS SIGNON.] -> 
+             getWards [Application context has not been created!]
 
 ### Multi-site queries
 connect->login->setupMultiSiteQuery->getAllMeds()
