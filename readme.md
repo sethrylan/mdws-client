@@ -56,17 +56,21 @@ See also: [connection information](https://sandbox.vainnovation.us/groups/mdws/w
 ## Example MDWS use cases
 
 ### Double login produces error
-getVHA -> 
-  connect(901) -> 
-     login(1programmer) -> 
-       getWards [ok] -> 
-          login(1programmer) [The remote procedure XUS AV CODE is not registered to the option XUS SIGNON.] -> 
-             getWards [Application context has not been created!]
+getVHA -> connect(901) -> login(1programmer) -> getWards [ok] -> login(1programmer)  -> getWards
+
+Fault message after second login:
+```
+The remote procedure XUS AV CODE is not registered to the option XUS SIGNON.
+```
+Fault message on method invocation after second login:
+```
+Application context has not been created!
+```
 
 ### Multi-site queries
-connect->login->setupMultiSiteQuery->getAllMeds()
-	or
-visit->setupMultiSiteQuery->getAllMeds()
+connect->login->setupMultiSiteQuery->getAllMeds()  
+	or  
+visit->setupMultiSiteQuery->getAllMeds()  
 
 Note: not all calls are multisite; select() is not multisite
 
@@ -78,10 +82,9 @@ mvn clean verify
 ```
 
 ## Open Development Items
-
-	* catch fault messages for all invocations
-	* multisitequery
-	* retrieve broken XML in getRpcs invocation.
+* catch fault messages for all invocations
+* multisitequery
+* retrieve broken XML in getRpcs invocation.
 
 ## Questions about MDWS
 1. Does connect(sitecode).getItems() ever contain more than one DataSourceTO?
