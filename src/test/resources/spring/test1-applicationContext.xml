@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd ">
+    
+    <aop:aspectj-autoproxy />
+     
+    <bean id="emrServiceClient" class="gov.va.iehr.mdws.EmrServiceClientImpl">
+         <constructor-arg index="0" value="901"/>
+         <constructor-arg index="1" value="1programmer" />
+         <constructor-arg index="2" value="programmer1" />
+    </bean>    
+    
+    <!--<bean id="monitorAspect" class="gov.va.common.aop.MonitorAspect" />-->
+
+    <bean id="monitoringInterceptor" class="org.javasimon.spring.MonitoringInterceptor"/>
+    <bean id="monitoringAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="advice" ref="monitoringInterceptor"/>
+        <property name="pointcut">
+            <bean class="org.javasimon.spring.MonitoredMeasuringPointcut"/>
+        </property>
+    </bean>
+
+    
+    
+
+</beans>
