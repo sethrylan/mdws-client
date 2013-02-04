@@ -8,6 +8,7 @@ import java.util.logging.Logger;
  *
  * @author gaineys
  */
+@Deprecated
 public class TestLogger {
 
     public static Logger getLogger() {

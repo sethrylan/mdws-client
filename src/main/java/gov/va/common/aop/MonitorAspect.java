@@ -22,7 +22,7 @@ public class MonitorAspect {
     @Around(value = "@annotation(annotation)")
     public Object LogExecutionTime(final ProceedingJoinPoint joinPoint, final LogExecTime annotation) throws Throwable {
         
-        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+        MethodSignature signature = (MethodSignature)joinPoint.getSignature();
         Method method = signature.getMethod();
         if (method.getDeclaringClass().isInterface()) {
             method = joinPoint.getTarget().getClass().getDeclaredMethod(joinPoint.getSignature().getName(), method.getParameterTypes());
