@@ -561,6 +561,19 @@ public class EmrServiceClientTestInstance extends TestClass {
         Assert.assertEquals(0, patients.size());
     }
     
+    @Test(groups="predisconnect")
+    public void testGetDataSourceProperties() {
+        System.out.println("modality: " + testClient.getDataSource().getModality());
+        System.out.println("protocol: " + testClient.getDataSource().getProtocol());
+        System.out.println("status: " + testClient.getDataSource().getStatus());
+        System.out.println("description: " + testClient.getDataSource().getDescription());
+        System.out.println("context: " + testClient.getDataSource().getContext());
+        System.out.println("siteId: " + testClient.getDataSource().getSiteId().getText());
+        System.out.println("provider: " + testClient.getDataSource().getProvider());
+    }
+    
+
+    
     @Test(groups="predisconnect", enabled=false)
     public void testGetTestDfn() {
         System.out.println("MEDICATIONS : "  + testClient.getMedications(TEST_DFN).size());

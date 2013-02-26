@@ -22,15 +22,12 @@ public class EmrServiceClientFactoryITest {
     public Object[] createInstances() {
         Collection<String> appContextsFiles = ClassPathSearcher.findFilesInClassPath(".*spring\\\\test\\d-applicationContext.xml").keySet();
         Assert.assertTrue("There should be at least one test#-applicationContext.xml file.", appContextsFiles.size() > 0);
-//        Collection<String> propertyFiles = ClassPathSearcher.findFilesInClassPath(".*mdws\\d.properties").keySet();
         List<Object> testInstances = new ArrayList<Object>();
         
         for (String appContextFile : appContextsFiles) {
             ApplicationContext appContext = new ClassPathXmlApplicationContext(appContextFile.substring(appContextFile.lastIndexOf("spring")));
             Assert.assertTrue(appContext.containsBean("emrServiceClient"));
-//            Assert.assertTrue(appContext.containsBean("monitorAspect"));
             testInstances.add(new EmrServiceClientTestInstance((EmrServiceClient)appContext.getBean("emrServiceClient")));
-//                testInstances.add(new EmrServiceClientTestInstance(new EmrServiceClient(new PropertiesConfiguration(propertyFile))));
         }
         return testInstances.toArray();
     }
