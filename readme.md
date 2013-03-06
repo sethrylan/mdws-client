@@ -104,6 +104,8 @@ mvn clean verify
 1. Operations that need selection:
     - getAllOrders?, getAllergies?, getAllMeds?
 
+
+
 ## License
 
 All source code and documents in this repository are licensed under the [MIT-License](http://opensource.org/licenses/MIT).
