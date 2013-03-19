@@ -108,4 +108,4 @@ mvn clean verify
 
 ## License
 
-[sethrylan.mit-license.org/](http://sethrylan.mit-license.org/).
+[sethrylan.mit-license.org](http://sethrylan.mit-license.org/)
